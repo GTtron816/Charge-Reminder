@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ChargingStopReminder" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/monetbuttonlb</item>
+        <item name="colorPrimaryVariant">@color/monetbuttonb</item>
+        <item name="colorOnPrimary">@color/monetbglb</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/moneticonlb</item>
+        <item name="colorSecondaryVariant">@color/monetbuttonlb</item>
+        <item name="colorOnSecondary">@color/monetbglb</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/moneticonlb</item>
+
+    </style>
+
+    <style name="cardbg">
+        <item name="android:background">@color/monetbuttonb</item>
+
+    </style>
+
+    <style name="sw">
+        <item name="android:textColor">@color/moneticonlb</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>
