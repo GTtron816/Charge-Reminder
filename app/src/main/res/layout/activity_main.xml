@@ -99,8 +99,8 @@
         android:layout_marginTop="400dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.212"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
@@ -131,8 +131,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="400dp"
         android:text="Set Limit:"
-        app:layout_constraintEnd_toStartOf="@+id/t"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
