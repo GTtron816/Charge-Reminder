@@ -13,6 +13,7 @@ import android.widget.Toast
 import com.gttron.yukino.chsr.NConst.CHANNEL_ID
 import com.gttron.yukino.chsr.NConst.NOTIFICATION_ID
 import com.gttron.yukino.chsr.NConst.blevel
+import com.gttron.yukino.chsr.NConst.playing
 import com.gttron.yukino.chsr.NConst.ring
 
 
@@ -60,6 +61,7 @@ private val mBatteryInfoReciver: BroadcastReceiver = object : BroadcastReceiver(
         ring = MediaPlayer.create(this, R.raw.bs)
         ring.isLooping=false
         ring.start()
+        playing=1
         unregisterReceiver(mBatteryInfoReciver)
 
     }

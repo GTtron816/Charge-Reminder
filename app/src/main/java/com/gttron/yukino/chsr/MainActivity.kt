@@ -1,5 +1,6 @@
 package com.gttron.yukino.chsr
 
+import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +8,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
+import com.gttron.yukino.chsr.NConst.playing
 
 import com.gttron.yukino.chsr.NConst.ring
 
@@ -23,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val ch=cl.text
         val t=findViewById<TextView>(R.id.t)
         setcurrentlimit()
-
+        savechargelimit()
 
 
         val savebt=findViewById<Button>(R.id.limitsave)
@@ -43,19 +46,65 @@ class MainActivity : AppCompatActivity() {
         val start = findViewById<Button>(R.id.st)
         start.setOnClickListener {
 
-            startService(Intent(this, ChargeRService::class.java))
+            if(CheckServiceRunning(ChargeRService::class.java)){
+                Toast.makeText(this,"Service is running",Toast.LENGTH_LONG).show()
 
+            }
+
+            else {
+
+                Toast.makeText(this,"Service started",Toast.LENGTH_LONG).show()
+
+                startService(Intent(this, ChargeRService::class.java))
+            }
 
         }
         val stop = findViewById<Button>(R.id.stop)
         stop.setOnClickListener{
-            stopService(Intent(this,ChargeRService::class.java))
-            ring.stop()
+
+            if(!CheckServiceRunning(ChargeRService::class.java)){
+                Toast.makeText(this,"Service is not running",Toast.LENGTH_LONG).show()
+
+            }
+
+            else {
+                Toast.makeText(this,"Service stopped",Toast.LENGTH_LONG).show()
+                stopService(Intent(this, ChargeRService::class.java))
+                if(playing==1)
+                {
+                    ring.stop()
+                }
+
+
+
+            }
+
         }
 
 
 
     }
+
+
+    private fun CheckServiceRunning(mClass: Class<ChargeRService>):Boolean
+    {
+        val manager: ActivityManager= getSystemService(
+            Context.ACTIVITY_SERVICE
+        )as ActivityManager
+
+        for(service: ActivityManager.RunningServiceInfo in manager.getRunningServices(Integer.MAX_VALUE))
+        {
+            if(mClass.name.equals((service.service.className))){
+                return true
+            }
+
+
+        }
+           return false
+
+    }
+
+
 
     private fun setcurrentlimit() {
         var limitS=""
