@@ -72,8 +72,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/charge"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:inputType="number"
+            android:layout_height="match_parent"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,18 +90,17 @@
         app:layout_constraintTop_toTopOf="@+id/box"
         app:layout_constraintVertical_bias="1.0" />
 
+
     <TextView
         android:id="@+id/t"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:text="TextView"
-        android:visibility="invisible"
+        android:layout_marginTop="400dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.212"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/limitsave" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view2"
@@ -119,13 +118,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Charging Stop Reminder"
+        android:text="Charge Reminder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
-
-
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="400dp"
+        android:text="Set Limit:"
+        app:layout_constraintEnd_toStartOf="@+id/t"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

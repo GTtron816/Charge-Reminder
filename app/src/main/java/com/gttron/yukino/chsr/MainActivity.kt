@@ -1,21 +1,18 @@
 package com.gttron.yukino.chsr
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Switch
 import android.widget.TextView
 
 import com.gttron.yukino.chsr.NConst.ring
 
 class MainActivity : AppCompatActivity() {
     var chargevalue = 80
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
-    private lateinit var switchauth: Switch
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
@@ -24,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val cl=findViewById<EditText>(R.id.charge)
         val ch=cl.text
         val t=findViewById<TextView>(R.id.t)
-
+        setcurrentlimit()
 
 
 
@@ -44,6 +41,19 @@ class MainActivity : AppCompatActivity() {
             stopService(Intent(this,ChargeRService::class.java))
             ring.stop()
         }
+
+
+
+    }
+
+    private fun setcurrentlimit() {
+        var limitS=""
+        val t= findViewById<TextView>(R.id.t)
+        val sharedPreferences=getSharedPreferences("sharedPref",Context.MODE_PRIVATE)
+        val charge=sharedPreferences.getInt("charge",80)
+
+        limitS=charge.toString()
+            t.setText(limitS)
 
 
 

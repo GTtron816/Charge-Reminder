@@ -8,6 +8,6 @@ object NConst {
     const val NOTIFICATION_ID=123
     var blevel = 0
     lateinit var ring: MediaPlayer
-    var chargelimit:String?="80"
+
 
 }

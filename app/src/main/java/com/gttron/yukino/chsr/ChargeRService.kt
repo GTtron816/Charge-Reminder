@@ -9,13 +9,10 @@ import android.media.MediaPlayer
 import android.os.BatteryManager
 import android.os.Build
 import android.os.IBinder
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import com.gttron.yukino.chsr.NConst.CHANNEL_ID
 import com.gttron.yukino.chsr.NConst.NOTIFICATION_ID
 import com.gttron.yukino.chsr.NConst.blevel
-import com.gttron.yukino.chsr.NConst.chargelimit
 import com.gttron.yukino.chsr.NConst.ring
 
 
