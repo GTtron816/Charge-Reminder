@@ -51,7 +51,7 @@ private val mBatteryInfoReciver: BroadcastReceiver = object : BroadcastReceiver(
 
         if (bchk == chargeval)
         {
-            Toast.makeText(applicationContext, "Charge Level=$bchk", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Charge Level: $bchk%", Toast.LENGTH_LONG).show()
             notif()
         }
 
