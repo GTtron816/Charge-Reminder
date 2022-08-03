@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputLayout
 
 import com.gttron.yukino.chsr.NConst.ring
 
@@ -26,8 +27,18 @@ class MainActivity : AppCompatActivity() {
 
 
         val savebt=findViewById<Button>(R.id.limitsave)
-        savebt.setOnClickListener { t.setText(ch)
-            savechargelimit() }
+        savebt.setOnClickListener {
+            val dbox = findViewById<TextInputLayout>(R.id.box)
+            if (cl.text?.length == 0) {
+                cl.error = "Field cannot be empty"
+                dbox.helperText = "Field cannot be empty"
+
+            } else {
+
+                t.setText(ch)
+                savechargelimit()
+            }
+        }
 
         val start = findViewById<Button>(R.id.st)
         start.setOnClickListener {
