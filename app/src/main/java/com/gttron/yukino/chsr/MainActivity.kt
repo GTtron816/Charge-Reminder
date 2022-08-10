@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import com.google.android.material.textfield.TextInputLayout
+import com.gttron.yukino.chsr.NConst.playforcestop
 import com.gttron.yukino.chsr.NConst.playing
 
 import com.gttron.yukino.chsr.NConst.ring
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
+
+
         val lsbar=findViewById<SeekBar>(R.id.blimit)
         val t=findViewById<TextView>(R.id.t)
         lsbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
@@ -62,22 +65,28 @@ class MainActivity : AppCompatActivity() {
         val stop = findViewById<Button>(R.id.stop)
         stop.setOnClickListener{
 
+
+
             if(!CheckServiceRunning(ChargeRService::class.java)){
-                Toast.makeText(this,"Service is not running",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Service is not running",Toast.LENGTH_LONG).show()}
 
-            }
 
-            else {
-                Toast.makeText(this,"Service stopped",Toast.LENGTH_LONG).show()
+
+              else {
+                Toast.makeText(this, "Service stopped", Toast.LENGTH_LONG).show()
                 stopService(Intent(this, ChargeRService::class.java))
-                if(playing==1)
-                {
+                   if(playing==1)
+                   {
                     ring.stop()
-                }
-
-
+                    ring.release()
+                    playing = 0}
 
             }
+
+
+
+
+
 
         }
 

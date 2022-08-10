@@ -13,6 +13,7 @@ import android.widget.Toast
 import com.gttron.yukino.chsr.NConst.CHANNEL_ID
 import com.gttron.yukino.chsr.NConst.NOTIFICATION_ID
 import com.gttron.yukino.chsr.NConst.blevel
+import com.gttron.yukino.chsr.NConst.playforcestop
 import com.gttron.yukino.chsr.NConst.playing
 import com.gttron.yukino.chsr.NConst.ring
 
@@ -51,8 +52,15 @@ private val mBatteryInfoReciver: BroadcastReceiver = object : BroadcastReceiver(
 
         if (bchk == chargeval)
         {
-            Toast.makeText(applicationContext, "Charge Level: $bchk%", Toast.LENGTH_LONG).show()
-            notif()
+            Toast.makeText(applicationContext, "Charge Level: $bchk%", Toast.LENGTH_SHORT).show()
+            if(playing==0)
+            {
+            notif()}
+
+            if(playing==1 && ring.isPlaying==false)
+            {
+               dereg()
+            }
         }
 
     }
@@ -62,9 +70,21 @@ private val mBatteryInfoReciver: BroadcastReceiver = object : BroadcastReceiver(
         ring.isLooping=false
         ring.start()
         playing=1
+        }
+
+    fun dereg()
+    {
+
         unregisterReceiver(mBatteryInfoReciver)
+        Toast.makeText(this,"Service stopped",Toast.LENGTH_LONG).show()
+        stopService(Intent(this, ChargeRService::class.java))
+        playing=0
+        ring.release()
+
+
 
     }
+
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
 
