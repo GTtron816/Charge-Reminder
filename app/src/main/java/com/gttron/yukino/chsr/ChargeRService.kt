@@ -13,7 +13,6 @@ import android.widget.Toast
 import com.gttron.yukino.chsr.NConst.CHANNEL_ID
 import com.gttron.yukino.chsr.NConst.NOTIFICATION_ID
 import com.gttron.yukino.chsr.NConst.blevel
-import com.gttron.yukino.chsr.NConst.playforcestop
 import com.gttron.yukino.chsr.NConst.playing
 import com.gttron.yukino.chsr.NConst.ring
 
