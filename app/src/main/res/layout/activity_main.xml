@@ -102,8 +102,8 @@
 
     <SeekBar
         android:id="@+id/blimit"
-        android:layout_width="365dp"
-        android:layout_height="46dp"
+        android:layout_width="384dp"
+        android:layout_height="47dp"
         android:layout_marginTop="188dp"
         android:max="100"
         android:progress="80"
