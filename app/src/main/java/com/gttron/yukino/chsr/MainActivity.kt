@@ -6,8 +6,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
-import com.google.android.material.textfield.TextInputLayout
-import com.gttron.yukino.chsr.NConst.playforcestop
 import com.gttron.yukino.chsr.NConst.playing
 
 import com.gttron.yukino.chsr.NConst.ring
