@@ -5,10 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.android.material.textfield.TextInputLayout
 import com.gttron.yukino.chsr.NConst.playing
 
@@ -21,27 +18,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
-
-        val cl=findViewById<EditText>(R.id.charge)
-        val ch=cl.text
+        val lsbar=findViewById<SeekBar>(R.id.blimit)
         val t=findViewById<TextView>(R.id.t)
+        lsbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                val pr = progress.toString()
+                t.text = pr
+                savechargelimit()
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                // you can probably leave this empty
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                // you can probably leave this empty
+            }
+        })
+
+
+
         setcurrentlimit()
         savechargelimit()
 
 
-        val savebt=findViewById<Button>(R.id.limitsave)
-        savebt.setOnClickListener {
-            val dbox = findViewById<TextInputLayout>(R.id.box)
-            if (cl.text?.length == 0) {
-                cl.error = "Field cannot be empty"
-                dbox.helperText = "Field cannot be empty"
-
-            } else {
-
-                t.setText(ch)
-                savechargelimit()
-            }
-        }
 
         val start = findViewById<Button>(R.id.st)
         start.setOnClickListener {
